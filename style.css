@@ -30,10 +30,12 @@ body {
     background-color: var(--white-color);
     display: flex;
     width: 80%;
-    /* height: 30%; */
-    max-width: 650px; 
+    max-width: 600px; 
     max-height: 400px;
     border-radius: 25px;
+    box-shadow: 0px 15px 20px 9px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 15px 20px 9px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 15px 20px 9px rgba(0,0,0,0.16);
 }
 
 .card-left {
@@ -42,15 +44,17 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 40%;
+    width: 45%;
     color: var(--white-color);
     border-radius: 25px;
 }
 
 .card-right {
-    /* width: 60%; */
+    width: 55%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 2rem;
 }
 
 .weather-icon {
@@ -68,19 +72,79 @@ body {
     font-size: 2.5rem;
 }
 
+.search-box {
+    width: 100%;
+}
+
 .city-search__input {
     border: 0;
     border-radius: 50px;
     background-color: var(--bg-color);
-    padding: 1rem 2rem;
+    padding: .75rem 2rem .75rem 2rem;
+    outline: 0;
 }
 
 .search__button {
+    height: 100%;
     width: 40px;
-    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    background-color: var(--bg-color);
+    margin-left: .9rem;
+    cursor: pointer;
 }
 
 .search__button img {
-    width: 20px;
-    height: 20px;
+    width: 13px;
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.row-1,
+.row-2, 
+.row-3 {
+    display: flex;
+    padding-bottom: .75rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+.icons {
+    height: 25px;
+    margin-right: 1.5rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.keys {
+    color: var(--gray-color);
+}
+
+.values {
+    color: var(--dark_gray-color);
+}
+
+.bottom-row img {
+    height: 40px;
+}
+
+.bottom-row {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 70px;
+    row-gap: 10px;
+}
+
+.sunrise, .sunset {
+    color: var(--dark_gray-color);
 }
