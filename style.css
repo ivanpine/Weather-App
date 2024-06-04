@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --bg-color: #E6E6E6;
+    --white-color: #ffffff;
+    --green-color: #13C07F;
+    --blue-color: #63E2ED;
+    --gray-color: #ADADAD;
+    --dark_gray-color: #535353;
+}
 
 * {
     margin: 0;
@@ -9,5 +19,71 @@
 }
 
 body {
-    background-color: #E6E6E6;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background-color: var(--white-color);
+    display: flex;
+    width: 80%;
+    /* height: 30%; */
+    max-width: 650px; 
+    max-height: 400px;
+    border-radius: 25px;
+}
+
+.card-left {
+    background: linear-gradient(#13C07F, #63E2ED);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+    color: var(--white-color);
+    border-radius: 25px;
+}
+
+.card-right {
+    /* width: 60%; */
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-icon {
+    margin-top: 3.5rem;
+    max-width: 170px;
+}
+
+.weather-temperature {
+    font-size: 2.75rem;
+}
+
+.city {
+    margin-top: 3rem;
+    font-family: "Libre Caslon Text", serif;
+    font-size: 2.5rem;
+}
+
+.search-box {
+}
+
+.city-search__input {
+    border: 0;
+    border-radius: 50px;
+    background-color: var(--bg-color);
+    padding: 1rem 2rem;
+}
+
+.search__button {
+    width: 40px;
+    height: 40px;
+}
+
+.search__button img {
+    width: 20px;
+    height: 20px;
 }
