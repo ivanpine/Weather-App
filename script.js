@@ -24,10 +24,7 @@ async function checkWeather(city) {
     const data2 = await response2.json();
 
     console.log(data);
-
     console.log(data2);
-
-    console.log(typeof data2.results.sunrise);
 
     cityName.innerHTML = data.location.name;
     cityTemperature.innerHTML = Math.round(data.current.temp_c) + '°C';
@@ -38,16 +35,37 @@ async function checkWeather(city) {
 
     const sunriseTime = data2.results.sunrise;
     const [hour, minute] = sunriseTime.split(':');
-    const formattedTime = hour.padStart(2, '0') + ':' + minute;
+    const formattedTime = hour.padStart(2, '0') + ':' + minute + ' AM';
     sunrise.innerHTML = formattedTime;
+
     const sunsetTime = data2.results.sunset;
     const [hour2, minute2] = sunsetTime.split(':');
-    const formattedTime2 = hour2.padStart(2, '0') + ':' + minute2;
+    const formattedTime2 = hour2.padStart(2, '0') + ':' + minute2 + ' PM';
     sunset.innerHTML = formattedTime2;
 };
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+async function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    
+    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=6016ca3d7b8340d7aff135730240506&q=${lat},${lon}&aqi=no`);
+    const data = await response.json();
+    
+    checkWeather(data.location.name);
+}
 
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     checkWeather(searchInput.value);
     searchInput.value = '';
 });
+
+window.onload = getLocation;

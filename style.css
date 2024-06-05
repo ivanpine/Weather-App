@@ -72,6 +72,12 @@ body {
     font-size: 2.25rem;
 }
 
+form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .city-search__input {
     border: 0;
     border-radius: 50px;
@@ -87,7 +93,7 @@ body {
     background-color: var(--bg-color);
     margin-left: .9rem;
     cursor: pointer;
-    padding: 0 .85rem;
+    padding: 0 .75rem;
 }
 
 .search__button img {
@@ -136,6 +142,7 @@ body {
 .bottom-row {
     margin-top: 1rem;
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 70px;
     row-gap: 10px;
