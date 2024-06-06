@@ -28,7 +28,7 @@ const weatherIcons = {
 };
 
 async function checkWeather(city) {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=6016ca3d7b8340d7aff135730240506&q=${city}&aqi=no`);
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=6016ca3d7b8340d7aff135730240506&q=${city}&aqi=no`);
     const data = await response.json();
 
     const lat = data.location.lat;
@@ -84,7 +84,7 @@ async function showPosition(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=6016ca3d7b8340d7aff135730240506&q=${lat},${lon}&aqi=no`);
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=6016ca3d7b8340d7aff135730240506&q=${lat},${lon}&aqi=no`);
     const data = await response.json();
     
     checkWeather(data.location.name);
