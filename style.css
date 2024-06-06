@@ -151,3 +151,68 @@ form {
 .sunrise, .sunset {
     color: var(--dark_gray-color);
 }
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        max-height: none;
+        width: 90%;
+    }
+
+    .card-left {
+        width: 100%;
+        border-radius: 25px 25px 0 0;
+    }
+
+    .card-right {
+        width: 100%;
+        padding: 1.5rem 1rem;
+    }
+
+    .weather-icon {
+        margin-top: 2rem;
+        max-width: 120px;
+    }
+
+    .weather-temperature {
+        font-size: 2rem;
+    }
+
+    .city {
+        margin-top: 2rem;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .rows {
+        margin-top: 2rem;
+    }
+
+    .icons {
+        height: 20px;
+        margin-right: 1rem;
+    }
+
+    .bottom-row {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 30px;
+    }
+
+    form {
+        justify-content: center;
+    }
+
+    .city-search__input {
+        padding: .5rem 1rem;
+    }
+
+    .search__button {
+        width: 35px;
+        height: 35px;
+        margin-left: .5rem;
+    }
+
+    .search__button img {
+        width: 10px;
+    }
+}
