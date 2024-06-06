@@ -3,7 +3,6 @@
 const searchInput = document.querySelector('.city-search__input');
 const searchButton = document.querySelector('.search__button');
 const form = document.querySelector('form');
-
 const cityName = document.querySelector('.city');
 const cityTemperature = document.querySelector('.weather-temperature');
 const weatherDesc = document.querySelector('.weather-description');
@@ -13,6 +12,20 @@ const feelsLike = document.querySelector('.row-3_value');
 const sunrise = document.querySelector('.sunrise');
 const sunset = document.querySelector('.sunset');
 const icon = document.querySelector('.weather-icon');
+const card = document.querySelector('.card-left');
+
+const weatherIcons = {
+    "Clear": "images/clear.png",
+    "Sunny": "images/clear.png",
+    "Cloudy": "images/clouds.png",
+    "Overcast": "images/clouds.png",
+    "Partly cloudy": "images/mist.png",
+    "Moderate rain": "images/drizzle.png",
+    "Light rain": "images/drizzle.png",
+    "Heavy rain": "images/rain.png",
+    "Moderate snow": "images/snow.png",
+    "Heavy snow": "images/snow.png",
+};
 
 async function checkWeather(city) {
     const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=6016ca3d7b8340d7aff135730240506&q=${city}&aqi=no`);
@@ -43,22 +56,20 @@ async function checkWeather(city) {
     const [hour2, minute2] = sunsetTime.split(':');
     const formattedTime2 = hour2.padStart(2, '0') + ':' + minute2 + ' PM';
     sunset.innerHTML = formattedTime2;
+    
+    const condition = data.current.condition.text;
 
-    if (!data.current.is_day) {
-        if (data.current.condition.text === "Clear") {
+    if (data.current.is_day) {
+        icon.src = weatherIcons[condition];
+    }
+
+    else {
+        if (condition === "Clear") {
             icon.src = "images/crescent-moon.png";
         }
+
+        card.style.background = "linear-gradient(#442B65 25%, #FBB431 100%)";
     }
-
-    else if(data.current.condition.text === "Sunny") {
-        icon.src = "images/clear.png";
-    }
-
-    else if(data.current.condition.text === "Partly cloudy") {
-        icon.src = "images/clouds.png";
-    }
-
-
 };
 
 function getLocation() {
